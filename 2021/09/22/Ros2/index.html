@@ -87,8 +87,14 @@
 <meta property="og:description" content="Ros学习笔记（二） ​        一些Ros 的命令行 ​        &#x2F;&#x2F; Ctrl + Alt + T 快速打开终端 ​        输命令的时候按 Tab 可以自动补全，一些比较复杂的命令，要输参数那种的可以连着按两下 Tab 来补全输参数">
 <meta property="og:locale">
 <meta property="og:image" content="https://laoyin.co/2021/09/22/Ros2/ROS_workspace_init.jpg">
+<meta property="og:image" content="https://laoyin.co/2021/09/22/Ros2/ros_yolo.jpg">
+<meta property="og:image" content="https://laoyin.co/2021/09/22/Ros2/msg.jpg">
+<meta property="og:image" content="https://laoyin.co/2021/09/22/Ros2/package.jpg">
+<meta property="og:image" content="https://laoyin.co/2021/09/22/Ros2/cmakelist1.jpg">
+<meta property="og:image" content="https://laoyin.co/2021/09/22/Ros2/cmakelist2.png">
+<meta property="og:image" content="https://laoyin.co/2021/09/22/Ros2/cmakelist3.png">
 <meta property="article:published_time" content="2021-09-22T13:10:01.000Z">
-<meta property="article:modified_time" content="2021-09-22T14:31:52.385Z">
+<meta property="article:modified_time" content="2021-11-26T07:10:34.411Z">
 <meta property="article:author" content="Lao Yin">
 <meta property="article:tag" content="Ros">
 <meta name="twitter:card" content="summary">
@@ -393,7 +399,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  337
+                  582
                 </span>
               
 
@@ -409,7 +415,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -436,16 +442,7 @@
 <p>​        输命令的时候按 Tab 可以自动补全，一些比较复杂的命令，要输参数那种的可以连着按两下 Tab 来补全输参数</p>
 <span id="more"></span>
 
-<h2 id="一、话题记录和话题复现"><a href="#一、话题记录和话题复现" class="headerlink" title="一、话题记录和话题复现"></a>一、话题记录和话题复现</h2><p>​        首先启动ros</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ roscore</span><br></pre></td></tr></table></figure>
-
-<p>​        话题记录，输入这个命令后，会在默认位置 home生成一个cmd_record.bag文件，这个文件记录了开启后的话题操作，可以用来复现</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rosbag record -a -O(大写的o) cmd_record</span><br></pre></td></tr></table></figure>
-
-<p>​        话题复现，就是把刚刚保存的数据复现出来</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rosbag play cmd_record.bag</span><br></pre></td></tr></table></figure>
-
-<h2 id="二、publisher"><a href="#二、publisher" class="headerlink" title="二、publisher"></a>二、publisher</h2><p>​        创建工作空间，catkin_ws是文件夹名字，可以自定义，后面必须要加 /src !!</p>
+<h3 id="创建工作空间和功能包"><a href="#创建工作空间和功能包" class="headerlink" title="创建工作空间和功能包"></a>创建工作空间和功能包</h3><p>​        创建工作空间，catkin_ws是文件夹名字，可以自定义，后面必须要加 /src !!</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir -p ~/catkin_ws/src</span><br><span class="line">$ cd ~/catkin_ws/src</span><br><span class="line">$ catkin_init_workspace</span><br></pre></td></tr></table></figure>
 
 <p>​        编译工作空间</p>
@@ -468,6 +465,55 @@
 
 <p>​        之后就启动ros，然后用rosrun运行功能包</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rosrun &lt;功能包文件夹名字&gt; &lt;cpp/py 文件名&gt;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="自定义话题"><a href="#自定义话题" class="headerlink" title="自定义话题"></a>自定义话题</h3><p>在功能包里，新建一个msg文件夹来存放msg文件        </p>
+<p><img src="/2021/09/22/Ros2/ros_yolo.jpg"></p>
+<p>新建一个.msg文件，类似这种</p>
+<p><img src="/2021/09/22/Ros2/msg.jpg"></p>
+<p>之后在功能包里的package.xml里加</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">build_depend</span>&gt;</span>message_generation<span class="tag">&lt;/<span class="name">build_depend</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">exec_depend</span>&gt;</span>message_runtime<span class="tag">&lt;/<span class="name">exec_depend</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/09/22/Ros2/package.jpg"></p>
+<p>在功能包的Cmakelist.xml里3个部分分别添加：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">find_package(</span><br><span class="line">...message_generation</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/09/22/Ros2/cmakelist1.jpg"></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">add_message_files(</span><br><span class="line">   FILES</span><br><span class="line">   Message1.msg</span><br><span class="line">   Message2.msg</span><br><span class="line"> )</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/09/22/Ros2/cmakelist2.png"></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">catkin_package(</span><br><span class="line">...message_runtime...</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/09/22/Ros2/cmakelist3.png"></p>
+<hr>
+<h3 id="话题记录和话题复现"><a href="#话题记录和话题复现" class="headerlink" title="话题记录和话题复现"></a>话题记录和话题复现</h3><p>​        首先启动ros</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ roscore</span><br></pre></td></tr></table></figure>
+
+<p>​        话题记录，输入这个命令后，会在默认位置 home生成一个cmd_record.bag文件，这个文件记录了开启后的话题操作，可以用来复现</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rosbag record -a -O(大写的o) cmd_record</span><br></pre></td></tr></table></figure>
+
+<p>​        话题复现，就是把刚刚保存的数据复现出来</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rosbag play cmd_record.bag</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="参数配置命令行"><a href="#参数配置命令行" class="headerlink" title="参数配置命令行"></a>参数配置命令行</h3><p>​        ROS Master里面有一个参数服务器Parameter Server，相当于一个全局字典，里面的值（如：/robot_name : “robot1”）任何一个Node都可以访问使用</p>
+<p>​        列出当前参数列表</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rosparam list</span><br></pre></td></tr></table></figure>
+
+<p>​        显示某个参数的值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rosparam get xxx</span><br></pre></td></tr></table></figure>
+
+<p>​        改变某个参数的值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rosparam set xxx new_value</span><br></pre></td></tr></table></figure>
+
+<p>​        删除某个参数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rosparam delete xxx</span><br></pre></td></tr></table></figure>
+
+<p>​        保存当前参数列表到某个文件，此文件的后缀是yaml，会自动生成在当前终端的默认路径下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rosparam dump file_name.yaml</span><br></pre></td></tr></table></figure>
+
+<p>​        从某个文件读取参数列表</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rosparam load file_name.yaml</span><br></pre></td></tr></table></figure>
 
 
       
@@ -508,6 +554,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/11/26/assembly-1/" rel="prev" title="汇编实验：查找电话号码">
+                汇编实验：查找电话号码 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -589,7 +639,7 @@
             
               <div class="site-state-item site-state-posts">
                 <a href="/archives">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -611,7 +661,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -660,7 +710,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E8%AF%9D%E9%A2%98%E8%AE%B0%E5%BD%95%E5%92%8C%E8%AF%9D%E9%A2%98%E5%A4%8D%E7%8E%B0"><span class="nav-number">1.</span> <span class="nav-text">一、话题记录和话题复现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81publisher"><span class="nav-number">2.</span> <span class="nav-text">二、publisher</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%B7%A5%E4%BD%9C%E7%A9%BA%E9%97%B4%E5%92%8C%E5%8A%9F%E8%83%BD%E5%8C%85"><span class="nav-number">1.</span> <span class="nav-text">创建工作空间和功能包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E8%AF%9D%E9%A2%98"><span class="nav-number">2.</span> <span class="nav-text">自定义话题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%9D%E9%A2%98%E8%AE%B0%E5%BD%95%E5%92%8C%E8%AF%9D%E9%A2%98%E5%A4%8D%E7%8E%B0"><span class="nav-number">3.</span> <span class="nav-text">话题记录和话题复现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%82%E6%95%B0%E9%85%8D%E7%BD%AE%E5%91%BD%E4%BB%A4%E8%A1%8C"><span class="nav-number">4.</span> <span class="nav-text">参数配置命令行</span></a></li></ol></div>
             
 
           </div>
