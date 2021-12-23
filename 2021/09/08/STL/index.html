@@ -87,7 +87,7 @@
 <meta property="og:description" content="关于一些cpp STL库函数的用法 万能头文件 ： #include&lt;bits&#x2F;stdc++.h&gt;">
 <meta property="og:locale">
 <meta property="article:published_time" content="2021-09-08T08:32:11.000Z">
-<meta property="article:modified_time" content="2021-09-14T15:13:43.483Z">
+<meta property="article:modified_time" content="2021-12-23T08:01:14.656Z">
 <meta property="article:author" content="Lao Yin">
 <meta property="article:tag" content="STL">
 <meta name="twitter:card" content="summary">
@@ -369,7 +369,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  247
+                  359
                 </span>
               
 
@@ -439,6 +439,15 @@
 
 <p>遍历：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> t : a) cout &lt;&lt; t &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>判断两个vector是否相等可以直接：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;<span class="keyword">int</span>&gt; a;</span><br><span class="line">vector&lt;<span class="keyword">int</span>&gt; b;</span><br><span class="line"><span class="keyword">if</span>(a == b) </span><br><span class="line">	...</span><br></pre></td></tr></table></figure>
+
+<p>此外，vector中clear的作用只是将size置0，原来有的元素还是会在里面：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">vector&lt;<span class="keyword">int</span>&gt; <span class="title">a</span><span class="params">(<span class="number">30</span>)</span></span>;  <span class="comment">//预分配30个空间给a</span></span><br><span class="line">a[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">a.<span class="built_in">clear</span>();    <span class="comment">//clear完后a[1]还是等于1。换成erase也是一样的，a[1]还是1</span></span><br></pre></td></tr></table></figure>
+
+<p>如果想将vector置0，可以用assign:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a.<span class="built_in">assign</span>(<span class="number">26</span>, <span class="number">0</span>); 	<span class="comment">//将前26个元素全部置0</span></span><br></pre></td></tr></table></figure>
 
 
       
@@ -564,7 +573,7 @@
             
               <div class="site-state-item site-state-posts">
                 <a href="/archives">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -586,7 +595,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
