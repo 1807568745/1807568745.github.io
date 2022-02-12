@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Ros," />
+  <meta name="keywords" content="tools_python," />
 
 
 
@@ -79,20 +79,18 @@
 
 
 
-<meta name="description" content="Ros学习笔记（一）一些Linux基础命令">
+<meta name="description" content="​    一些比较好用的python工具，xlrd用于处理xls和xlsx（excel），pdfplumber用于处理pdf">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Ros">
-<meta property="og:url" content="https://laoyin.co/2021/07/20/Ros1/index.html">
+<meta property="og:title" content="Python工具库">
+<meta property="og:url" content="https://laoyin.co/2022/02/12/pdf-python/index.html">
 <meta property="og:site_name" content="老鹰的小屋">
-<meta property="og:description" content="Ros学习笔记（一）一些Linux基础命令">
+<meta property="og:description" content="​    一些比较好用的python工具，xlrd用于处理xls和xlsx（excel），pdfplumber用于处理pdf">
 <meta property="og:locale">
-<meta property="og:image" content="https://laoyin.co/2021/07/20/Ros1/cd.jpg">
-<meta property="article:published_time" content="2021-07-20T08:11:35.000Z">
-<meta property="article:modified_time" content="2021-07-22T14:27:50.966Z">
+<meta property="article:published_time" content="2022-02-12T03:51:51.000Z">
+<meta property="article:modified_time" content="2022-02-12T04:58:46.193Z">
 <meta property="article:author" content="Lao Yin">
-<meta property="article:tag" content="Ros">
+<meta property="article:tag" content="tools_python">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://laoyin.co/2021/07/20/Ros1/cd.jpg">
 
 
 
@@ -122,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="https://laoyin.co/2021/07/20/Ros1/"/>
+  <link rel="canonical" href="https://laoyin.co/2022/02/12/pdf-python/"/>
 
 
 
 
 
-  <title>Ros | 老鹰的小屋</title>
+  <title>Python工具库 | 老鹰的小屋</title>
   
 
 
@@ -289,7 +287,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://laoyin.co/2021/07/20/Ros1/">
+    <link itemprop="mainEntityOfPage" href="https://laoyin.co/2022/02/12/pdf-python/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lao Yin">
@@ -306,7 +304,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Ros</h1>
+          <h1 class="post-title" itemprop="name headline">Python工具库</h1>
         
 
         <div class="post-meta">
@@ -318,8 +316,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-07-20T16:11:35+08:00">
-                2021-07-20
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-02-12T11:51:51+08:00">
+                2022-02-12
               </time>
             
 
@@ -341,8 +339,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Ros/" itemprop="url" rel="index">
-                    <span itemprop="name">Ros</span>
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
                   </a>
                 </span>
 
@@ -359,8 +357,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2021/07/20/Ros1/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2021/07/20/Ros1/" itemprop="commentCount"></span>
+                <a href="/2022/02/12/pdf-python/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2022/02/12/pdf-python/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -368,7 +366,7 @@
 
           
           
-             <span id="/2021/07/20/Ros1/" class="leancloud_visitors" data-flag-title="Ros">
+             <span id="/2022/02/12/pdf-python/" class="leancloud_visitors" data-flag-title="Python工具库">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -393,7 +391,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  315
+                  342
                 </span>
               
 
@@ -430,34 +428,38 @@
       
 
       
-        <h2 id="Ros学习笔记（一）"><a href="#Ros学习笔记（一）" class="headerlink" title="Ros学习笔记（一）"></a>Ros学习笔记（一）</h2><p>一些Linux基础命令</p>
+        <p>​    一些比较好用的python工具，xlrd用于处理xls和xlsx（excel），pdfplumber用于处理pdf</p>
 <span id="more"></span>
 
-<h3 id="Linux基础命令"><a href="#Linux基础命令" class="headerlink" title="Linux基础命令"></a>Linux基础命令</h3><h5 id="快捷键：Ctrl-Alt-t-打开终端"><a href="#快捷键：Ctrl-Alt-t-打开终端" class="headerlink" title="快捷键：Ctrl+Alt+t 打开终端"></a>快捷键：Ctrl+Alt+t 打开终端</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pwd  		//显示当前终端工作目录的绝对路径</span><br></pre></td></tr></table></figure>
+<h2 id="xlrd-And-xlwt"><a href="#xlrd-And-xlwt" class="headerlink" title="xlrd And xlwt"></a>xlrd And xlwt</h2><p>​        xlrd用于读取xls，xlwt用于写xls</p>
+<p>​        使用前需import：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> xlrd</span><br><span class="line"><span class="keyword">import</span> xlwt</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cd /home/   //进入home</span><br><span class="line">$ cd ..      //返回上一级目录</span><br></pre></td></tr></table></figure>
+<h3 id="xlrd"><a href="#xlrd" class="headerlink" title="xlrd"></a>xlrd</h3><p>​        xlrd打开文件：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">excel = xlrd.open_workbook(<span class="string">&quot;C://路径//文件名.xlsx&quot;</span>)</span><br><span class="line">graph = excel.sheets()[i]		<span class="comment">#i表示文件里的第i个表</span></span><br></pre></td></tr></table></figure>
 
-<p>​    <img src="/2021/07/20/Ros1/cd.jpg"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir (文件夹名)    //make direction:创建一个新的文件夹</span><br><span class="line">$ ls               //list:查看当前路径下有哪些文件</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">graph.nrows		<span class="comment">#总行数，可以当成一个变量直接用</span></span><br><span class="line">graph.ncols		<span class="comment">#总列数</span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ touch test		//在当前路径新建一个名为test的文件</span><br><span class="line">$ mv test /home/laoyin/		//move:把test剪切到目标位置/home/laoyin/下</span><br><span class="line">$ cp test /home/laoyin/(new_name)	//copy:把test复制到目标位置下，同时给新的test改个名字，也可以什么都不加</span><br></pre></td></tr></table></figure>
+<p>​        读取表中内容：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">value = graph.col_values(<span class="number">1</span>)[i]		<span class="comment">#读取第1列（从0开始），第i行的数据</span></span><br><span class="line"><span class="comment">#或</span></span><br><span class="line">value = graph.row_values(<span class="number">1</span>)[i]		<span class="comment">#读取第1行（从0开始），第i列的数据</span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ rm test	//remove:删除当前路径下的test文件</span><br><span class="line">$ rm -r test	//删除当前路径下的test文件夹</span><br></pre></td></tr></table></figure>
+<h3 id="xlwt"><a href="#xlwt" class="headerlink" title="xlwt"></a>xlwt</h3><p>​        创建一个xlsx文件：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">xl = xlwt.Workbook(encoding=<span class="string">&quot;utf-8&quot;</span>)</span><br><span class="line">sheet = xl.add_sheet(<span class="string">&quot;name&quot;</span>, cell_overwrite_ok=<span class="literal">True</span>)		<span class="comment">#在文件中创一个名为&quot;name&quot;的表，第二个参数指是否允许单元格重复写入</span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo 		//提升当前用户的权限</span><br></pre></td></tr></table></figure>
+<p>​        写入：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sheet.write(i, j, <span class="string">&quot;字符串&quot;</span>)		<span class="comment">#在表的第i行，第j列写入字符串</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="C-amp-Python"><a href="#C-amp-Python" class="headerlink" title="C++ &amp; Python"></a>C++ &amp; Python</h3><p>首先先安装c++和python的编译器</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install g++		//cpp</span><br><span class="line">$ sudo apt-get install python	//python</span><br></pre></td></tr></table></figure>
+<p>​        python运行过程中创的表是不会自动保存的，因此需要人工保存到自己的电脑上：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xl.save(<span class="string">&quot;C://路径//name.xls&quot;</span>)    </span><br></pre></td></tr></table></figure>
 
-<p>c++的代码执行之前要先在终端里面编译，然后才能用终端执行</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ g++ xxx.cpp -o xxx</span><br></pre></td></tr></table></figure>
+<h2 id="pdfplumber"><a href="#pdfplumber" class="headerlink" title="pdfplumber"></a>pdfplumber</h2><p>​        使用前需要import</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pdfplumber</span><br></pre></td></tr></table></figure>
 
-<p>这时候就会生成一个名为“xxx”的可执行文件</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ./xxx</span><br></pre></td></tr></table></figure>
+<p>​        打开pdf文档：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> pdfplumber.<span class="built_in">open</span>(path) <span class="keyword">as</span> pdf:</span><br><span class="line">    <span class="keyword">pass</span>			<span class="comment">#之后操作都要在with下面进行</span></span><br></pre></td></tr></table></figure>
 
-<p>然后就用“./”（运行某个程序或者脚本），就可以运行了</p>
-<p>python不用编译，直接执行就行了</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ python xxx.py</span><br></pre></td></tr></table></figure>
+<p>​        读取pdf文档全篇内容：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">content = <span class="string">&quot;&quot;</span></span><br><span class="line"><span class="keyword">with</span> pdfplumber.<span class="built_in">open</span>(path) <span class="keyword">as</span> pdf:</span><br><span class="line">    <span class="keyword">for</span> num <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(pdf.pages)):    <span class="comment">#遍历pdf所有页</span></span><br><span class="line">    	st = pdf.pages[num].extract_text()     <span class="comment">#读取第num页的内容</span></span><br><span class="line">        content += st</span><br></pre></td></tr></table></figure>
 
 
       
@@ -476,7 +478,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Ros/" rel="tag"># Ros</a>
+            <a href="/tags/tools-python/" rel="tag"># tools_python</a>
           
         </div>
       
@@ -489,8 +491,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2021/07/17/starts/" rel="next" title="序章">
-                <i class="fa fa-chevron-left"></i> 序章
+              <a href="/2022/01/25/selenium/" rel="next" title="Selenium 基本操作">
+                <i class="fa fa-chevron-left"></i> Selenium 基本操作
               </a>
             
           </div>
@@ -498,10 +500,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2021/07/25/Graph/" rel="prev" title="基础算法：搜索和图论">
-                基础算法：搜索和图论 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -654,7 +652,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Ros%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">Ros学习笔记（一）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4"><span class="nav-number">1.1.</span> <span class="nav-text">Linux基础命令</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%BF%AB%E6%8D%B7%E9%94%AE%EF%BC%9ACtrl-Alt-t-%E6%89%93%E5%BC%80%E7%BB%88%E7%AB%AF"><span class="nav-number">1.1.0.1.</span> <span class="nav-text">快捷键：Ctrl+Alt+t 打开终端</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C-amp-Python"><span class="nav-number">1.2.</span> <span class="nav-text">C++ &amp; Python</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#xlrd-And-xlwt"><span class="nav-number">1.</span> <span class="nav-text">xlrd And xlwt</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#xlrd"><span class="nav-number">1.1.</span> <span class="nav-text">xlrd</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#xlwt"><span class="nav-number">1.2.</span> <span class="nav-text">xlwt</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pdfplumber"><span class="nav-number">2.</span> <span class="nav-text">pdfplumber</span></a></li></ol></div>
             
 
           </div>
